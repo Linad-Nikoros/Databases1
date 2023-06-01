@@ -1,0 +1,42 @@
+# создание базы данных
+CREATE SCHEMA `homework1`;
+
+#cоздание таблицы в базе данных 
+CREATE TABLE `homework1`.`phone` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `ProductName` VARCHAR(200) NULL,
+  `Manufacturer` VARCHAR(45) NULL,
+  `ProductCount` VARCHAR(10) NULL,
+  `Price` VARCHAR(60) NULL,
+  PRIMARY KEY (`id`));
+
+#заполнение столбцов
+INSERT INTO `homework1`.`phone` (`id`, `ProductName`, `Manufacturer`, `ProductCount`, `Price`) VALUES ('1', 'Iphone X', 'Apple', '2', '78000');
+INSERT INTO `homework1`.`phone` (`id`, `ProductName`, `Manufacturer`, `ProductCount`, `Price`) VALUES ('2', 'Iphone 12', 'Apple', '4', '89000');
+INSERT INTO `homework1`.`phone` (`id`, `ProductName`, `Manufacturer`, `ProductCount`, `Price`) VALUES ('3', 'Galaxy S9', 'Samsung ', '2', '56000');
+INSERT INTO `homework1`.`phone` (`id`, `ProductName`, `Manufacturer`, `ProductCount`, `Price`) VALUES ('4', 'Galaxy S8', 'Samsung ', '3', '45000');
+INSERT INTO `homework1`.`phone` (`id`, `ProductName`, `Manufacturer`, `ProductCount`, `Price`) VALUES ('5', 'Itrix S54', 'Huawei', '1', '25000');
+
+#Выведите название, производителя и цену для товаров, количество которых превышает 2
+SELECT ProductName,Manufactrurer,Price FROM homework1.phone
+WHERE ProductCount < 2;
+
+#Выведите весь ассортимент товаров марки “Samsung”
+SELECT * FROM homework1.phone
+WHERE Manufacturer LIKE "Samsung"
+
+#Товары, в наименовании которых есть упоминание "Iphone"
+SELECT * FROM homework1.phone
+WHERE ProductName LIKE "%Iphone%";
+
+#Товары, в наименовании которых есть упоминание "Samsung"
+SELECT * FROM homework1.phone
+WHERE ProductName LIKE "%Samsung%";
+
+#Товары, в наименовании которых есть ЦИФРЫ
+SELECT * FROM homework1.phone
+WHERE ProductName RLIKE "[0-9]";
+
+#Товары, в наименовании которых есть ЦИФРА "8"
+SELECT * FROM homework1.phone
+WHERE ProductName RLIKE "[8]";
